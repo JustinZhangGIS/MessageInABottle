@@ -1,0 +1,238 @@
+html, body {
+    padding     : 0;
+    margin      : 0;
+    width       : 100%;
+    height      : 100%;
+    font-family : Segoe UI, Helvetica, sans-serif;
+    overflow    : hidden;
+}
+
+.esriRTL label {
+    /*Example of a rule that will be applied if the app is viewed in a browser with a RTL locale like Hebrew or Arabic.*/
+}
+
+/* MAIN APP MESSAGES =========================================================== */
+.app-error .loading-message {
+    background  : url(../images/error.png) no-repeat top center;
+    padding-top : 60px;
+    width       : 100%;
+    position    : absolute;
+    z-index     : 2;
+    top         : 40%;
+    left        : 0;
+    text-align  : center;
+}
+
+.message-node {
+    position         : absolute;
+    top              : 30%;
+    z-index          : 99;
+    width            : 100%;
+    padding          : 40px;
+    text-align       : center;
+    font-size        : 2em;
+    background-color : rgba(255, 214, 171, 0.8);
+}
+
+.message-node .small-text {
+    padding        : 5px !important;
+    font-size      : smaller !important;
+    display        : table-cell;
+    vertical-align : middle;
+}
+
+.message-node span {
+    color       : #fff;
+    text-shadow : 1px 1px 0 #222;
+}
+
+.error-node span {
+    color : darkred;
+}
+
+/* MAIN APP MESSAGES =========================================================== */
+
+#e4dd788f56f5487eb671a58c9b9d2ed9search-node {
+    z-index  : 99;
+    position : absolute;
+    top      : 20px;
+    right    : 20px;
+}
+
+#basemap-toggle-node {
+    z-index  : 99;
+    position : absolute;
+    top      : 15px;
+    left     : 60px;
+}
+
+#search-node {
+    z-index  : 99;
+    position : absolute;
+    top      : 90px;
+    left     : 60px;
+}
+
+#scene-node {
+    width  : 100%;
+    height : 100%;
+}
+
+#stations-pane {
+    z-index  : 99;
+    position : absolute;
+    top      : 135px;
+    left     : 15px;
+    width    : 300px;
+}
+
+#stations-node {
+    max-height : 550px;
+}
+
+.station-node {
+    cursor     : pointer;
+    padding    : 5px;
+    font-size  : smaller;
+    border-top : solid 1px #ffd6ab;
+}
+
+/* allow popup to automatically resize to its content */
+.esri-popup .esri-container,
+.esri-popup .esri-popup-main,
+.esri-popup .esri-popup-content {
+    width      : auto !important;
+    height     : auto !important;
+    max-width  : unset !important;
+    max-height : unset !important;
+}
+
+/* POPUP CONTENT */
+.station-details {
+    width  : 820px;
+    height : 420px;
+}
+
+.station-node:hover {
+    color            : #fff;
+    background-color : darkorange;
+}
+
+.station-node:active {
+    background-color : #ffd949;
+}
+
+.station-symbol {
+    display     : inline-block;
+    width       : 1em;
+    height      : 1em;
+    border-left : solid 5px transparent;
+}
+
+/*.station-symbol img {
+  vertical-align : middle;
+  width          : 10px;
+  height         : 10px;
+}*/
+
+#slides-pane {
+    z-index  : 99;
+    position : absolute;
+    top      : 15px;
+    right    : 15px;
+    width    : 450px;
+}
+
+#slides-pane .dgrid {
+    border : none !important;
+}
+
+#slides-pane .dgrid-scroller {
+    overflow-x : hidden;
+    overflow-y : auto;
+}
+
+#slides-pane .slide-item {
+    cursor        : pointer;
+    text-align    : center;
+    margin        : 5px 0;
+    padding       : 5px;
+    border-radius : 4px;
+    border        : solid 1px transparent;
+    transition    : background-color 0.5s;
+}
+
+#slides-pane .slide-item:hover {
+    background-color : #eee;
+    border-color     : #ccc;
+    transition       : background-color 0.5s;
+}
+
+#slides-pane .dgrid-selected,
+#slides-pane .slide-item:active {
+    background-color : #fff !important;
+    border-color     : #666 !important;
+}
+
+#slides-pane .slide-title {
+    font-size : smaller;
+}
+
+#slides-pane .no-data-message {
+    color       : #999;
+    text-align  : center;
+    padding-top : 40px;
+    font-size   : 1.25em;
+    font-style  : italic;
+}
+
+#app-details {
+    font-size : smaller;
+    color     : #666;
+    padding   : 5px;
+}
+
+#options-node {
+    border  : solid 1px #ffd6ab;
+    margin  : 10px;
+    padding : 5px;
+}
+
+.option-node {
+    margin : 5px 5px 5px 30px;
+}
+
+.option-node label {
+    display    : inline-block;
+    width      : 150px;
+    text-align : right;
+}
+
+.option-node .dijitSlider {
+    display : inline-block;
+    width   : 125px;
+}
+
+.option-node .dijitTextBox {
+    width      : 120px;
+    text-align : right !important;
+}
+
+#clear-results {
+    cursor     : pointer;
+    color      : darkred;
+    width      : 300px;
+    font-size  : smaller;
+    text-align : center;
+}
+
+#clear-results:hover {
+    text-decoration : underline;
+}
+
+.link-action {
+    display    : inline-block;
+    width      : 100%;
+    text-align : right;
+    font-size  : x-small;
+}

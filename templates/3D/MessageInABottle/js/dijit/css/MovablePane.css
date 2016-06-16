@@ -1,0 +1,50 @@
+
+.apl-movable-pane {
+    cursor           : default;
+    width            : 200px;
+    padding          : 4px;
+    background-color : rgba(255, 255, 255, 0.9);
+    transition       : background-color 1s;
+    overflow         : hidden;
+    box-shadow       : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.apl-movable-pane:hover {
+    background-color : #fff;
+    transition       : background-color 1s;
+}
+
+.apl-movable-pane .dijitFieldset {
+    border-color : transparent !important;
+}
+
+.apl-movable-pane .dijitFieldsetLegendNode {
+    font-weight : bolder;
+    cursor      : pointer;
+}
+
+.apl-movable-pane .dijitFieldsetLegendNode:focus {
+    outline : none;
+}
+
+.apl-movable-pane .dijitFieldsetContentInner {
+    overflow : auto !important;
+}
+
+.apl-movable-pane.dijitDisabled .dijitFieldsetContentInner {
+    pointer-events : none;
+    opacity        : 0.33 !important;
+    transition     : opacity 0.33s;
+}
+
+.apl-movable-pane-move-handle {
+    cursor         : move;
+    position       : absolute;
+    top            : 2px;
+    right          : 6px;
+    font-size      : 1.3em;
+    letter-spacing : -2px;
+    font-weight    : bold;
+    color          : #666;
+    user-select    : none;
+}

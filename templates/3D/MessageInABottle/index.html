@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ocean Currents</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="//js.arcgis.com/4.0/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="//js.arcgis.com/4.0/dgrid/css/dgrid.css">
+    <link rel="stylesheet" href="//js.arcgis.com/4.0/esri/css/main.css">
+    <link rel="stylesheet" href="./js/dijit/css/MovablePane.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="text/javascript">
+        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        var dojoConfig = {
+            parseOnLoad: true,
+            packages: [
+                {
+                    name: "put-selector",
+                    location: package_path + "../../../../put-selector/"
+                },
+                {
+                    name: "application",
+                    location: package_path + "/js"
+                },
+                {
+                    name: "config",
+                    location: package_path + "/config"
+                },
+                {
+                    name: "arcgis_templates",
+                    location: package_path + "/.."
+                }
+            ]
+        };
+    </script>
+    <script type="text/javascript" src="//js.arcgis.com/4.0/"></script>
+    <script type="text/javascript">
+        require([
+            "dojo/ready",
+            "dojo/_base/lang",
+            "config/templateConfig",
+            "application/template",
+            "application/main",
+            "application/dijit/MovablePane",
+            "dijit/form/NumberSpinner",
+            "dijit/form/HorizontalSlider",
+            "dijit/form/HorizontalRuleLabels",
+            "dijit/form/DateTextBox"
+        ], function (ready, lang, templateConfig, Template, MainApp) {
+
+            MainApp.displayMessage("Welcome...");
+
+            var myTemplate = new Template(templateConfig);
+            myTemplate.startup().then(function (config) {
+                ready(lang.hitch(this, function () {
+                    var myApp = new MainApp(config);
+                    myApp.startup();
+                }));
+            }, MainApp.displayMessage);
+
+        });
+    </script>
+</head>
+<body class="claro">
+<div id="scene-node" dir="ltr">
+    <div id="basemap-toggle-node"></div>
+    <div id="search-node"></div>
+    <div id="stations-pane" class="dijitHidden" data-dojo-type="application/dijit/MovablePane" data-dojo-props="title:'Tide Stations',open:true">
+        <div id="stations-node"></div>
+    </div>
+    <div id="slides-pane" data-dojo-type="application/dijit/MovablePane" data-dojo-props="title:'Ocean Currents',open:true">
+        <!--You can also find out where the message in a bottle, oil spill, or famous explorer has drifted/floated from.-->
+        <div id="app-details">
+            Track ocean currents globally in space and time. Use the tools to follow and predict the migration of a message in a bottle, an oil spill, or even to understand how the ocean currents have helped famous explorers.
+            <div class="link-action">
+                <a href="http://www.arcgis.com/home/webscene/viewer.html?webscene=e4dd788f56f5487eb671a58c9b9d2ed9" target="_blank" title="View map in ArcGIS.com...">Map</a>
+                <span> | </span>
+                <a href="http://www.arcgis.com/home/item.html?id=057ee4512e234847a5b3cc6b56270139" target="_blank" title="View data item...">Data</a>
+            </div>
+        </div>
+        <div id="options-node">
+            <div class="option-node">
+                <label>Start Date:</label>
+                <input id="start-date-input" data-dojo-type="dijit/form/DateTextBox" data-dojo-props=""/>
+            </div>
+            <div class="option-node">
+                <label>Number of Days:</label>
+                <input id="number-of-days-input" data-dojo-type="dijit/form/NumberSpinner" data-dojo-props="value:180,smallDelta:14,largeDelta:30,constraints:{min:7,max:360,places:0}"/>
+            </div>
+            <div class="option-node">
+                <label>Buffer Distance:</label>
+                <input id="buffer-distance-input" data-dojo-type="dijit/form/NumberSpinner" data-dojo-props="value:200,smallDelta:100,largeDelta:1000,constraints:{min:100,max:10000,places:0}"/>
+                <span>Kms</span>
+            </div>
+            <div class="option-node">
+                <label>Animation:</label>
+                <div id="animation-speed" data-dojo-type="dijit/form/HorizontalSlider" data-dojo-props="showButtons:false,value:31,minimum:11,maximum:50,discreteValues:40">
+                    <ol data-dojo-type="dijit/form/HorizontalRuleLabels" container="topDecoration" style="height:1.5em;font-size:60%;color:gray;">
+                        <li>slow</li>
+                        <li>fast</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="option-node">
+                <label id="clear-results" title="Remove all analysis results from the map">Clear Results</label>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
